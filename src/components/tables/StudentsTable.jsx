@@ -1,7 +1,5 @@
-import { useState } from "react";
 import Table from "react-bootstrap/Table";
 
-import ModalComponent from "../modals/ModalComponent";
 import Student from "../Student";
 
 function StudentsTable({ studentDataGlobal, setStudentData }) {
