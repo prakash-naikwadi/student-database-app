@@ -23,6 +23,7 @@ const Student = ({ student, setStudentData, studentDataGlobal }) => {
         <ModalComponent
           studentDataGlobal={studentDataGlobal}
           setStudentData={setStudentData}
+          student={student}
         />
       </td>
       <td>
