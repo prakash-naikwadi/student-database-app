@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
@@ -14,7 +14,12 @@ function App() {
           <Route path="/" element={<Home setStudentData={setStudentData} />} />
           <Route
             path="/students"
-            element={<Students studentDataGlobal={studentDataGlobal} />}
+            element={
+              <Students
+                studentDataGlobal={studentDataGlobal}
+                setStudentData={setStudentData}
+              />
+            }
           />
           <Route path="/*" element={<NotFound />} />
         </Routes>

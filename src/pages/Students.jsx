@@ -1,11 +1,11 @@
 import React from "react";
-import StudentsTable from "../components/tables/StudentsTable";
 import Button from "react-bootstrap/Button";
 
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import StudentList from "../components/StudentList";
 
-const Students = ({ studentDataGlobal }) => {
+const Students = ({ studentDataGlobal, setStudentData }) => {
   const navigate = useNavigate();
   const handleViewHomePage = () => {
     navigate("/");
@@ -21,7 +21,10 @@ const Students = ({ studentDataGlobal }) => {
           Add Student
         </Button>
       </div>
-      <StudentsTable studentDataGlobal={studentDataGlobal} />
+      <StudentList
+        studentDataGlobal={studentDataGlobal}
+        setStudentData={setStudentData}
+      />
     </Container>
   );
 };

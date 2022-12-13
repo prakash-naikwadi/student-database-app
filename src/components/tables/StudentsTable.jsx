@@ -1,32 +1,38 @@
+import { useState } from "react";
 import Table from "react-bootstrap/Table";
 
-function StudentsTable({ studentDataGlobal }) {
+import ModalComponent from "../modals/ModalComponent";
+import Student from "../Student";
+
+function StudentsTable({ studentDataGlobal, setStudentData }) {
   return (
-    <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>rollNo</th>
-          <th>name</th>
-          <th>address</th>
-          <th>contactNumber</th>
-          <th>email</th>
-        </tr>
-      </thead>
-      <tbody>
-        {console.log(studentDataGlobal)}
-        {studentDataGlobal.map((student) => {
-          return (
-            <tr key={student.rollNo}>
-              <td>{student.rollNo}</td>
-              <td>{student.name}</td>
-              <td>{student.address}</td>
-              <td>{student.contactNumber}</td>
-              <td>{student.email}</td>
-            </tr>
-          );
-        })}
-      </tbody>
-    </Table>
+    <>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>rollNo</th>
+            <th>name</th>
+            <th>address</th>
+            <th>contactNumber</th>
+            <th>email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {console.log(studentDataGlobal)}
+          {studentDataGlobal.map((student) => {
+            return (
+              <Student
+                student={student}
+                setStudentData={setStudentData}
+                studentDataGlobal={studentDataGlobal}
+              />
+            );
+          })}
+        </tbody>
+      </Table>
+    </>
   );
 }
 
