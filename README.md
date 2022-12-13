@@ -6,7 +6,7 @@ This is a To DO List App build using **HTML5, Bootstrap and React**.
 
 <br>
 
-## 📌 **Live Site URL:** <a href="https://beautiful-gumption-d669cd.netlify.app/">**Visit Now** 🚀</a>
+## 📌 **Live Site URL:** <a href="https://students-database-crud-react-app.netlify.app/">**Visit Now** 🚀</a>
 
 ## 📌 Tech Stack
 
