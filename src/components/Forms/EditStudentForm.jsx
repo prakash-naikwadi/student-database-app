@@ -27,14 +27,23 @@ const EditStudentForm = ({
     }
     event.preventDefault();
 
+    // Update Logic
+
     const index = studentDataGlobal.findIndex((item) => {
       return item.rollNo === student.rollNo;
     });
 
     setStudentData((prevState) =>
       prevState.map((task) => {
-        if (student.rollNo === task[index]) {
-          return { ...task, task: item[0], id: item[1] };
+        if (task.rollNo === prevState[index].rollNo) {
+          return {
+            ...task,
+            rollNo: rollNo,
+            name: name,
+            address: address,
+            contactNumber: contactNumber,
+            email: email,
+          };
         }
         return task;
       })
@@ -51,10 +60,6 @@ const EditStudentForm = ({
     setContactNumber("");
     setEmail("");
   };
-
-  // useEffect(() => {
-  //   getStudentData(studentData);
-  // }, [studentData, getStudentData]);
 
   return (
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
