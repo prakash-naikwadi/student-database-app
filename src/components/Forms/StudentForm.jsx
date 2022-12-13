@@ -5,17 +5,20 @@ import Form from "react-bootstrap/Form";
 const StudentForm = ({ setStudentData }) => {
   const [validated, setValidated] = useState(false);
 
-  const [rollNo, setRollNo] = useState();
-  const [name, setName] = useState();
+  const [rollNo, setRollNo] = useState("");
+  const [name, setName] = useState("");
   const [address, setAddress] = useState();
-  const [contactNumber, setContactNumber] = useState();
-  const [email, setEmail] = useState();
+  const [contactNumber, setContactNumber] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
+    console.log(form.checkValidity());
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+      setValidated(true);
+      return;
     }
     event.preventDefault();
     setStudentData((prev) => {
@@ -31,7 +34,15 @@ const StudentForm = ({ setStudentData }) => {
       ];
     });
 
-    setValidated(true);
+    console.log("submitted");
+
+    setValidated(false);
+
+    setRollNo("");
+    setName("");
+    setAddress("");
+    setContactNumber("");
+    setEmail("");
   };
 
   // useEffect(() => {
@@ -47,6 +58,7 @@ const StudentForm = ({ setStudentData }) => {
           placeholder="Enter Roll No"
           required
           onChange={(e) => setRollNo(e.target.value)}
+          value={rollNo}
         />
         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
       </Form.Group>
@@ -58,6 +70,7 @@ const StudentForm = ({ setStudentData }) => {
           placeholder="Enter Full Name"
           required
           onChange={(e) => setName(e.target.value)}
+          value={name}
         />
         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
       </Form.Group>
@@ -69,6 +82,7 @@ const StudentForm = ({ setStudentData }) => {
           rows={3}
           required
           onChange={(e) => setAddress(e.target.value)}
+          value={address}
         />
       </Form.Group>
 
@@ -79,6 +93,7 @@ const StudentForm = ({ setStudentData }) => {
           placeholder="Enter Contact Number"
           required
           onChange={(e) => setContactNumber(e.target.value)}
+          value={contactNumber}
         />
       </Form.Group>
 
@@ -89,6 +104,7 @@ const StudentForm = ({ setStudentData }) => {
           placeholder="Enter email"
           required
           onChange={(e) => setEmail(e.target.value)}
+          value={email}
         />
       </Form.Group>
       <div style={{ textAlign: "center" }}>
